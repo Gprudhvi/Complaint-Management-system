@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CMSPortal</title>
+<style>
+.button {
+  font: bold 20px Roboto;
+  text-decoration: none;
+  background-color: #333333;
+  color: #FFFFFF;
+  padding: 2px 6px 2px 6px;
+
+}
+
+.button1 {
+  font: 18px Roboto;
+  text-decoration: none;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+
+}
+.button1:hover {background-color: #e7e7e7;}
+
+
+</style>
+</head>
+<body>
+
+
+<div class="button">
+<span style="float:left"> <a href="{{ url_for('afteruserloggedin') }}" class="button">Back</a> </span>
+<span style="float:right"> <a href="/logout" class="button">Logout</a> </span><br/></div>
+
+<br/><br/>
+
+<center><h2>Complaint History </h2></center>
+
+
+<!-- <form action = "/cgi-bin/hello_get.cgi" method = "get"> --><!--
+<center>
+<table style="margin-left:auto;margin-right:auto;">
+  <tr>
+     <th>Department</th>
+    <th>Division</th>
+	<th>Subject</th>
+    <th>Description</th>
+    <th>Status</th>
+    <th>Mark as Resolved</th>
+    <th>Submit</th>
+  </tr> -->
+<!-- </form> -->
+<center><h3>Un-resolved complaints</h3></center>
+<form action="{{ url_for('afteruserloggedin') }}" method = "POST" style="margin-left:auto;margin-right:auto align='center'">
+<center>
+<table border = 5>
+    <th>Subject</th>
+
+  <th>Complaint Id</th>
+  <th>Department</th>
+  <th>Division</th>
+  {% for  row in result %}
+  <tr>
+	<td> <a href="{{url_for('userresolvecomplaint',cid = row[0])}}" class="button1">{{row[5]}}</a></td>
+
+    <td> {{ row[0]}}</td>
+    <td> {{ row[3]}} </td>
+    <td> {{ row[4]}} </td>
+  </tr>
+  {% endfor %}
+</table>
+</center>
+<br/><br/>
+<center><h3>Admin Responded complaints</h3></center>
+<center>
+<table border = 5>
+    <th>Subject</th>
+
+  <th>Complaint Id</th>
+  <th>Department</th>
+  <th>Division</th>
+  {% for  row in resultx %}
+  <tr>
+	<td> <a href="{{url_for('userresolvecomplaint',cid = row[0])}}" class="button1">{{row[5]}}</a></td>
+
+    <td> {{ row[0]}}</td>
+    <td> {{ row[3]}} </td>
+    <td> {{ row[4]}} </td>
+  </tr>
+  {% endfor %}
+</table>
+</center>
+<br/><br/>
+<center><h3>Un-satisfied Complaints</h3></center>
+<center>
+<table border = 5>
+    <th>Subject</th>
+
+  <th>Complaint Id</th>
+  <th>Department</th>
+  <th>Division</th>
+  {% for  row in resulty %}
+  <tr>
+	<td> <a href="{{url_for('userresolvecomplaint',cid = row[0])}}" class="button1">{{row[5]}}</a></td>
+
+    <td> {{ row[0]}}</td>
+    <td> {{ row[3]}} </td>
+    <td> {{ row[4]}} </td>
+  </tr>
+  {% endfor %}
+</table>
+</center>
+<br/><br/>
+<center><h3>Satisfied Complaints</h3></center>
+<center>
+<table border = 5>
+    <th>Subject</th>
+
+  <th>Complaint Id</th>
+  <th>Department</th>
+  <th>Division</th>
+  {% for  row in resultz %}
+  <tr>
+	<td> <a href="{{url_for('userresolvecomplaint',cid = row[0])}}" class="button1">{{row[5]}}</a></td>
+
+    <td> {{ row[0]}}</td>
+    <td> {{ row[3]}} </td>
+    <td> {{ row[4]}} </td>
+  </tr>
+  {% endfor %}
+</table>
+</center>
+
+</form>
+
+
+</body>
+</html>
