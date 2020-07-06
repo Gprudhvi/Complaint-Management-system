@@ -27,7 +27,7 @@ To run the Project, execute the file:
     - Session Management.
  
 ### Users
-    - Users can lodge their complaints in the respective categories(say academic, civil etc) and this complaint is notified to      particular admin via email.
+    - Users can lodge their complaints in the respective categories(say academic, civil etc) and this complaint is notified to particular admin via email.
     - every update regarding the complaint is notified to user using automated email 
     - User can also give their feedback regarding the complaint.
     
